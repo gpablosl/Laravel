@@ -11,7 +11,17 @@
 |
 */
 Route::get('/', function () {
-    return view('notas');
+   return view('welcome'); 
+});
+
+Route::get('notas', function(){
+    $notas = [
+        /*'Primer nota',
+        'Segunda nota',
+        'Tercera nota',
+        'Cuarta nota'*/
+    ];
+    return view('notas', ['notas' => $notas]);
 });
 
 Route::get('agregar', function(){
@@ -19,25 +29,5 @@ Route::get('agregar', function(){
 });
 
 Route::get('editar', function(){
-    return view('editar');
-});
-
-Route::get('media/videos', function(){
-    return 'aqui se muestran los videos';
-});
-
-Route::get('basedatos', function(){
-    return 'aqui te lleva a una teórica bases de datos que aun no existe';
-});
-
-Route::get('basedatos/{id}/editar', function($id){
-    return 'aqui se van a editar las notas:' .$id;
-});
-
-Route::get('basedatos/alumno', function(){
-    return 'aqui te muestran datos de un alumno';
-});
-
-Route::get('notas/actualizar', function(){
-    return 'aqui sera la vista para actualizar una nota';
+    return view('eaditar');
 });
