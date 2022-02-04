@@ -1,6 +1,7 @@
-
         @extends('layout')
-        
+
+        @section('title', 'Listado de notas')
+
         @section('content')
         <main class="content">
             <div class="cards">
@@ -24,7 +25,7 @@
                     </footer>
                 </div>
                 @empty
-                    <p> No hay registros que mostrar en este momento <a href="/agregar"> Agregar nota</p>
+                    <p> No hay registros que mostrar en este momento <a href="{{ url('agregar') }}"> Agregar nota</p>
                 @endforelse
                 <div class="card card-small">
                     <div class="card-body">

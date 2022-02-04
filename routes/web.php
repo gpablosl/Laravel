@@ -10,24 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-   return view('welcome'); 
-});
 
-Route::get('notas', function(){
+Route::get('/', function(){
     $notas = [
-        /*'Primer nota',
+        'Primer nota',
         'Segunda nota',
         'Tercera nota',
-        'Cuarta nota'*/
+        'Cuarta nota'
     ];
     return view('notas', ['notas' => $notas]);
+})->name('listar');
+
+Route::get('notas/{id}', function($id){
+    return 'Aqui veremos el detalle de la nota: '.$id;
 });
 
 Route::get('agregar', function(){
     return view('agregar');
-});
+})->name('nuevanota');
 
 Route::get('editar', function(){
-    return view('eaditar');
+    return view('editar');
 });

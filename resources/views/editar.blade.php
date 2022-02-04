@@ -1,7 +1,7 @@
-
-        
         @extends('layout')
         
+        @section('title', 'Edición de notas')
+
         @section('content')
         
         <main class="content">

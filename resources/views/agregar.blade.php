@@ -1,5 +1,7 @@
         @extends('layout')
         
+        @section('title', 'Agregar notas')
+        
         @section('content')
         <main class="content">
             <div class="cards">
