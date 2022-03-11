@@ -1,26 +1,23 @@
-        @extends('layout')
-        
-        @section('title', 'Agregar notas')
-        
-        @section('content')
-        <main class="content">
-            <div class="cards">
-                <div class="card card-center">
-                    <div class="card-body">
-                        <h1>Nueva nota</h1>
+@extends('layout')
 
-                        <form action="">
-                            <label for="title" class="field-label">Título: </label>
-                            <input type="text" name="title" id="title" class="field-input">
+@section('content')
+<main class="content">
+    <div class="cards">
+        <div class="card card-center">
+            <div class="card-body">
+                <h1>Nueva nota</h1>
 
-                            <label for="content" class="field-label">Contenido:</label>
-                            <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
+                <form action="">
+                    <label for="title" class="field-label">Título: </label>
+                    <input type="text" name="title" id="title" class="field-input">
 
-                            <button type="submit" class="btn btn-primary">Crear nota</button>
-                        </form>
-                    </div>
-                </div>
+                    <label for="content" class="field-label">Contenido:</label>
+                    <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
+
+                    <button type="submit" class="btn btn-primary">Crear nota</button>
+                </form>
             </div>
-        </main>
-
-        @endsection
+        </div>
+    </div>
+</main>
+@endsection

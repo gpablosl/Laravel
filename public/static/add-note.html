@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('static/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -13,14 +13,14 @@
 
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li class="main-nav-item {{url()->current() == route('listar') ? 'active' : '' }}">
-                        <a href="{{ url('/') }}" class="main-nav-link">
+                    <li class="main-nav-item">
+                        <a href="/static/notes.html" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>Ver notas</span>
                         </a>
                     </li>
-                    <li class="main-nav-item {{url()->current() == route('nuevanota') ? 'active' : '' }}">
-                        <a href="{{ url('agregar') }}" class="main-nav-link">
+                    <li class="main-nav-item active">
+                        <a href="/static/add-note.html" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Nueva nota</span>
                         </a>
@@ -28,9 +28,25 @@
                 </ul>
             </nav>
         </header>
+        <main class="content">
+            <div class="cards">
+                <div class="card card-center">
+                    <div class="card-body">
+                        <h1>Nueva nota</h1>
 
-        @yield('content')
+                        <form action="">
+                            <label for="title" class="field-label">Título: </label>
+                            <input type="text" name="title" id="title" class="field-input">
 
+                            <label for="content" class="field-label">Contenido:</label>
+                            <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
+
+                            <button type="submit" class="btn btn-primary">Crear nota</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
         <footer class="foot">
             <div class="ad">
                 <p>

@@ -10,25 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', function(){
-    $notas = [
-        'Primer nota',
-        'Segunda nota',
-        'Tercera nota',
-        'Cuarta nota'
-    ];
+Route::get('notas', function () {
+    $notas = DB::table('notas')->get();
+
     return view('notas', ['notas' => $notas]);
 })->name('listar');
 
-Route::get('notas/{id}', function($id){
-    return 'Aqui veremos el detalle de la nota: '.$id;
-});
-
-Route::get('agregar', function(){
+Route::get('notas/agregar', function () {
     return view('agregar');
-})->name('nuevanota');
+})->name(nuevanota);
 
-Route::get('editar', function(){
-    return view('editar');
-});
+Route::get('notas/{id}/editar', function ($id) {
+    $nota = DB::table('notas')
+    ->where('id', $id)
+    ->first();
+
+    return view('editar', ['notas' => $notas]);
+})->name('notas.edit');
+
