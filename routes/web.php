@@ -15,30 +15,15 @@ use App\Models\Notas;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    $notas = Notas::all();   //DB::table('notas') ->get();
 
-    return view('notas', ['notas' => $notas]);
-}) -> name('notas.index');
+    return view('welcome');
+});
 
+Route::get('notas', 'App\Http\Controller\NotasController@index') -> name('notas.index');
 
-Route::get('agregar', function () {
-    return view('agregar');
-})->name('nuevanota');
+Route::get('agregar', 'App\Http\Controller\NotasController@agregar')->name('nuevanota');
 
-Route::post('crear',function (Request $request){
-    Notas::create([
-        'titulo' => $request->input('title'),
-        'contenido' => $request->input('content')
-        ]);
+Route::post('crear', 'App\Http\Controller\NotasController@crear')->name('notas.store');
 
-        return redirect('/notas');
-
-})->name('notas.store');
-
-Route::get('notas/{id}/editar', function($id){
-    $notas = Notas::find($id); //DB::table('notas')->where('id', $id)->first();
-    
-    return view('editar', ['notas' => $notas]);
-})->name('notas.edit');
+Route::get('notas/{id}/editar', 'App\Http\Controller\NotasController@editar')->name('notas.edit');
