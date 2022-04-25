@@ -6,16 +6,20 @@
     <div class="cards">
         <div class="card card-center">
             <div class="card-body">
-                <h1>Actualizar nota</h1>
-
-                <form action="">
+                <h1>{{ $notas->titulo }}</h1>
+                
+                <form method="POST" action="{{ url("notas/{$notas->id}/editar") }}">
+                    @csrf
+                    @method('PUT')
                     <label for="title" class="field-label">Título: </label>
                     <input type="text" name="title" id="title" class="field-input">
 
                     <label for="content" class="field-label">Contenido:</label>
                     <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
 
-                    <button type="submit" class="btn btn-primary">Editar nota</button>
+                    {!! $notas->contenido !!}
+                    </textarea>
+                    <button type="submit" class="btn btn-primary">Actualizar nota</button>
                 </form>
             </div>
         </div>
