@@ -32,6 +32,15 @@ class NotasController extends Controller
         return view('editar', ['notas' => $notas]);
     }
 
+    public function update(Notas $notas, Request $request){
+        
+        $notas->update([
+           'titulo' => $request -> input('title'),
+           'contenido' => $request -> input('contenido'),
+
+        ]);
+
+        return redirect('/notas'); 
+    }
+
 }
-
-
