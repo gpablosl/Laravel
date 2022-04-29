@@ -20,12 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('notas', 'App\Http\Controller\NotasController@index') -> name('notas.index');
+Route::get('notas', 'NotasController@index') -> name('notas.index');
 
-Route::get('agregar', 'App\Http\Controller\NotasController@agregar')->name('nuevanota');
+Route::get('agregar', 'NotasController@agregar')->name('notas.agregar');
 
-Route::post('crear', 'App\Http\Controller\NotasController@crear')->name('notas.store');
+Route::post('crear', 'NotasController@crear')->name('notas.crear');
 
-Route::get('notas/{id}/editar', 'App\Http\Controller\NotasController@editar')->name('notas.edit');
+Route::get('notas/{id}/editar', 'NotasController@editar')->name('notas.editar');
 
-Route::put('notas/{id}/editar', 'App\Http\Controller\NotasController@update')->name('notas.update');
+Route::put('notas/{notas}/editar', 'NotasController@update')->name('notas.update');
+
+Route::delete('notas/{id}', 'NotasController@destroy')->name('notas.destroy');
